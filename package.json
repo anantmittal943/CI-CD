@@ -1,16 +1,13 @@
 {
-  "name": "xyz_js",
+  "name": "node-ci-cd",
   "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "index.js",
+  "description": "CI/CD pipeline project",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "echo \"No tests yet\" && exit 0"
   },
   "dependencies": {
-    "@types/express": "^5.0.6",
-    "express": "^5.2.1"
+    "express": "^4.18.2"
   }
 }
