@@ -30,7 +30,7 @@ jobs:
 
     # 5. Build Docker image
     - name: Build Docker image
-      run: docker build -t node-ci-cd .
+      run: docker build -t nodejs-api .
 
     # 6. Login to DockerHub
     - name: Login to DockerHub
@@ -38,11 +38,11 @@ jobs:
 
     # 7. Tag image
     - name: Tag Docker image
-      run: docker tag node-ci-cd ${{ secrets.DOCKER_USERNAME }}/node-ci-cd:latest
+      run: docker tag nodejs-api ${{ secrets.DOCKER_USERNAME }}/nodejs-api:latest
 
     # 8. Push image
     - name: Push Docker image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/node-ci-cd:latest
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/nodejs-api:latest
 
     # 9. Deploy (example: remote server via SSH)
     - name: Deploy to server
@@ -52,7 +52,7 @@ jobs:
         username: ${{ secrets.SERVER_USER }}
         key: ${{ secrets.SERVER_SSH_KEY }}
         script: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/node-ci-cd:latest
-          docker stop node-ci-cd || true
-          docker rm node-ci-cd || true
-          docker run -d -p 3000:3000 --name node-ci-cd ${{ secrets.DOCKER_USERNAME }}/node-ci-cd:latest
+          docker pull ${{ secrets.DOCKER_USERNAME }}/nodejs-api:latest
+          docker stop nodejs-api || true
+          docker rm nodejs-api || true
+          docker run -d -p 8080:8080 --name nodejs-api ${{ secrets.DOCKER_USERNAME }}/nodejs-api:latest
