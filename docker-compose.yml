@@ -6,5 +6,5 @@ services:
     image: nodejs-api
     container_name: nodejs-api
     ports:
-      - "8080:8080"
+      - "8082:8082"
     restart: unless-stopped
