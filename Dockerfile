@@ -1,5 +1,4 @@
-# Use Node base image
-FROM node:18
+FROM node:18-alpine
 
 # Set working directory
 WORKDIR /app
@@ -17,4 +16,4 @@ COPY . .
 EXPOSE 8080
 
 # Start app
-CMD ["npm", "start"]
+CMD ["node", "index.js"]

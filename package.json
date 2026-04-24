@@ -1,7 +1,7 @@
 {
   "name": "nodejs-api",
   "version": "1.0.0",
-  "description": "CI/CD pipeline project",
+  "description": "Node.js REST API with health endpoint",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
